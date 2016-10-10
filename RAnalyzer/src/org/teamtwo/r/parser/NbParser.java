@@ -18,7 +18,7 @@ import org.netbeans.modules.parsing.spi.SourceModificationEvent;
 /**
  *
  * @author constantin Drabo
- *
+ * Modified by Steven
  *
  */
 public class NbParser extends Parser {
@@ -28,7 +28,7 @@ public class NbParser extends Parser {
 
     @Override
     public void parse(Snapshot snapshot, Task task, SourceModificationEvent event) throws ParseException {
-        System.out.println("Je suis dans le parser");
+        System.out.println("I am in the parser");
         this.snapshot = snapshot;
         org.antlr.v4.runtime.ANTLRInputStream input = new ANTLRInputStream(snapshot.getText().toString());
        // org.antlr.runtime.ANTLRStringStream input  =  new ANTLRStringStream(snapshot.getText().toString());
