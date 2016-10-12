@@ -94,6 +94,26 @@ public class RParser extends Parser {
 
 	@Override
 	public ATN getATN() { return _ATN; }
+        
+        public List<SyntaxError> syntaxErrors = new ArrayList<SyntaxError>();
+
+        public String getErrorMessage(RecognitionException e, String[] tokenNames)
+        {
+            String message = super.getErrorHeader(e); //  .getErrorMessage(e, tokenNames);
+            SyntaxError syntaxError = new SyntaxError();
+            syntaxError.exception = e;
+            syntaxError.message = message;
+            syntaxErrors.add(syntaxError);
+            return message;
+        }
+
+        public static class SyntaxError
+        {
+            public RecognitionException exception;
+            public String message;
+            public int line;
+            public int charPositionInLine;
+        }
 
 	public RParser(TokenStream input) {
 		super(input);

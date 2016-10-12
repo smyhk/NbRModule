@@ -10,8 +10,8 @@
                     <attr name="instanceCreate" methodvalue="org.teamtwo.r.lexer.RTokenId.getLanguage"/>
                     <attr name="instanceOf" stringvalue="org.netbeans.api.lexer.Language"/>
                 </file>
-                <file name="org-netbeans-parser-RParserFactory.instance"/>
-                <file name="org-netbeans-parser-SyntaxErrorsHighlightingTaskFactory.instance"/>                
+                <file name="org-teamtwo-r-parser-RParserFactory.instance"/>
+                <file name="org-teamtwo-r-parser-SyntaxErrorsHighlightingTaskFactory.instance"/>                
                 <folder name="FontsColors">
                     <folder name="NetBeans">
                         <folder name="Defaults">
