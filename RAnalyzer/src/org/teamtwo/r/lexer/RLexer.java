@@ -1,14 +1,13 @@
 package org.teamtwo.r.lexer;
 
 // Generated from R.g4 by ANTLR 4.5.3
+import java.util.ArrayList;
+import java.util.List;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.Token;
-import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
-import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class RLexer extends Lexer {
@@ -92,6 +91,26 @@ public class RLexer extends Lexer {
 	public Vocabulary getVocabulary() {
 		return VOCABULARY;
 	}
+
+
+		public List<SyntaxError> syntaxErrors = new ArrayList<SyntaxError>();
+
+		//@Override
+		public String getErrorMessage(RecognitionException e, String[] tokenNames) {
+			String message = super.getErrorHeader(e); // .getErrorMessage(e, tokenNames);
+			SyntaxError syntaxError = new SyntaxError();
+			syntaxError.exception = e;
+			syntaxError.message = message;
+			syntaxErrors.add(syntaxError);
+			return message;
+		}
+
+		public static class SyntaxError {
+			public RecognitionException exception;
+			public String message;
+			public int line;
+			public int charPositionInLine;
+		}
 
 
 	public RLexer(CharStream input) {

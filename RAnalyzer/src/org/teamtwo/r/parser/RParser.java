@@ -98,7 +98,7 @@ public class RParser extends Parser {
 
 		//@Override
 		public String getErrorMessage(RecognitionException e, String[] tokenNames) {
-			String message = super.getErrorHeader(e); // getErrorMessage(e, tokenNames);
+			String message = super.getErrorHeader(e); // .getErrorMessage(e, tokenNames);
 			SyntaxError syntaxError = new SyntaxError();
 			syntaxError.exception = e;
 			syntaxError.message = message;
