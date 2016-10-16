@@ -39,7 +39,6 @@ import org.openide.util.Exceptions;
 import org.openide.util.ImageUtilities;
 import org.openide.util.Lookup;
 import org.openide.util.lookup.Lookups;
-import static org.openide.util.lookup.Lookups.fixed;
 import org.openide.util.lookup.ProxyLookup;
 
 /**
