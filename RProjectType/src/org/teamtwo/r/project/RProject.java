@@ -84,7 +84,7 @@ public class RProject implements Project
                 UILookupMergerSupport.createRecommendedTemplatesMerger(),
             });
         }
-        return LookupProviderSupport.createCompositeLookup(lkp, "Projects/org-netbeans-modules-r-project/Lookup");
+        return LookupProviderSupport.createCompositeLookup(lkp, "Projects/org-teamtwo-r-project/Lookup");
     }
     
     //Action Provider for the project
