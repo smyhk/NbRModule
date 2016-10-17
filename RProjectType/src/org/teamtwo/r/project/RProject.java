@@ -320,7 +320,7 @@ public class RProject implements Project
                 FileObject projectDirectory = project.getProjectDirectory();
                 DataFolder projectFolder = DataFolder.findFolder(projectDirectory);
                 Node nodeOfProjectFolder = projectFolder.getNodeDelegate();
-                return new ProjectNode(project, nodeOfProjectFolder);
+                return new ProjectNode(nodeOfProjectFolder, project);
             } catch (DataObjectNotFoundException ex)
             {
                 Exceptions.printStackTrace(ex);
@@ -333,16 +333,16 @@ public class RProject implements Project
 
             final RProject project;
 
-            public ProjectNode(RProject project, Node original) throws DataObjectNotFoundException
+            public ProjectNode(Node node, RProject project) throws DataObjectNotFoundException
             {
-                super(original,
+                super(node,
                         NodeFactorySupport.createCompositeChildren(project, "Projects/org-teamtwo-r-project/Nodes"),
                         //new FilterNode.Children(original),
                         new ProxyLookup(
                                 new Lookup[]
                                 {
                                     Lookups.singleton(project),
-                                    original.getLookup()
+                                    node.getLookup()
                                 }));
                 this.project = project;
             }

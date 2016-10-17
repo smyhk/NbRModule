@@ -16,7 +16,7 @@ import org.openide.util.lookup.ServiceProvider;
  *
  * @author Steven
  */
-@ServiceProvider(service = ProjectFactory.class)
+@ServiceProvider(service=ProjectFactory.class)
 public class RProjectFactory implements ProjectFactory
 {
 
