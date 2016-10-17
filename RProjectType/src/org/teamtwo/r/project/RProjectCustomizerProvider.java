@@ -23,7 +23,7 @@ public class RProjectCustomizerProvider implements CustomizerProvider
 
     public final RProject project;
 
-    public static final String CUSTOMIZER_FOLDER_PATH = "Projects/org-netbeans-modules-r-project/Customizer";
+    public static final String CUSTOMIZER_FOLDER_PATH = "Projects/org-teamtwo-r-project/Customizer";
 
     public RProjectCustomizerProvider(RProject project)
     {
@@ -54,7 +54,8 @@ public class RProjectCustomizerProvider implements CustomizerProvider
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            StatusDisplayer.getDefault().setStatusText("OK button clicked for " + project.getProjectDirectory().getName() + " customizer!");
+            StatusDisplayer.getDefault().setStatusText("OK button clicked for "
+                    + project.getProjectDirectory().getName() + " customizer!");
         }
     }
 }
