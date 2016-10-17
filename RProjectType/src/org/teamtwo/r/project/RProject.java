@@ -47,16 +47,17 @@ import org.openide.util.lookup.ProxyLookup;
  */
 public class RProject implements Project
 {
+
     private final FileObject projectDir;
     private final ProjectState state;
     private Lookup lkp;
-    
+
     public RProject(FileObject dir, ProjectState state)
     {
         this.projectDir = dir;
         this.state = state;
     }
-    
+
     @Override
     public FileObject getProjectDirectory()
     {
@@ -86,14 +87,17 @@ public class RProject implements Project
         }
         return LookupProviderSupport.createCompositeLookup(lkp, "Projects/org-teamtwo-r-project/Lookup");
     }
-    
+
     //Action Provider for the project
-    class RProjectActionProvider implements ActionProvider {
+    class RProjectActionProvider implements ActionProvider
+    {
 
         @Override
-        public String[] getSupportedActions() {
+        public String[] getSupportedActions()
+        {
             //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            return new String[]{
+            return new String[]
+            {
                 ActionProvider.COMMAND_RENAME,
                 ActionProvider.COMMAND_MOVE,
                 ActionProvider.COMMAND_COPY,
@@ -102,30 +106,40 @@ public class RProject implements Project
         }
 
         @Override
-        public void invokeAction(String command, Lookup context) throws IllegalArgumentException {
-            if (command.equalsIgnoreCase(ActionProvider.COMMAND_RENAME)) {
+        public void invokeAction(String command, Lookup context) throws IllegalArgumentException
+        {
+            if (command.equalsIgnoreCase(ActionProvider.COMMAND_RENAME))
+            {
                 DefaultProjectOperations.performDefaultRenameOperation(RProject.this, "");
             }
-            if (command.equalsIgnoreCase(ActionProvider.COMMAND_MOVE)) {
+            if (command.equalsIgnoreCase(ActionProvider.COMMAND_MOVE))
+            {
                 DefaultProjectOperations.performDefaultMoveOperation(RProject.this);
             }
-            if (command.equalsIgnoreCase(ActionProvider.COMMAND_COPY)) {
+            if (command.equalsIgnoreCase(ActionProvider.COMMAND_COPY))
+            {
                 DefaultProjectOperations.performDefaultCopyOperation(RProject.this);
             }
-            if (command.equalsIgnoreCase(ActionProvider.COMMAND_DELETE)) {
+            if (command.equalsIgnoreCase(ActionProvider.COMMAND_DELETE))
+            {
                 DefaultProjectOperations.performDefaultDeleteOperation(RProject.this);
             }
         }
 
         @Override
-        public boolean isActionEnabled(String command, Lookup context) throws IllegalArgumentException {
-            if ((command.equals(ActionProvider.COMMAND_RENAME))) {
+        public boolean isActionEnabled(String command, Lookup context) throws IllegalArgumentException
+        {
+            if ((command.equals(ActionProvider.COMMAND_RENAME)))
+            {
                 return true;
-            } else if ((command.equals(ActionProvider.COMMAND_MOVE))) {
+            } else if ((command.equals(ActionProvider.COMMAND_MOVE)))
+            {
                 return true;
-            } else if ((command.equals(ActionProvider.COMMAND_COPY))) {
+            } else if ((command.equals(ActionProvider.COMMAND_COPY)))
+            {
                 return true;
-            } else if ((command.equals(ActionProvider.COMMAND_DELETE))) {
+            } else if ((command.equals(ActionProvider.COMMAND_DELETE)))
+            {
                 return true;
             }
             return false;
@@ -133,19 +147,23 @@ public class RProject implements Project
     }
 
     //Move operation implementation
-    private final class RProjectMoveOrRenameOperation implements MoveOrRenameOperationImplementation {
+    private final class RProjectMoveOrRenameOperation implements MoveOrRenameOperationImplementation
+    {
 
         private final RProject rProject;
 
-        public RProjectMoveOrRenameOperation(RProject rProject) {
+        public RProjectMoveOrRenameOperation(RProject rProject)
+        {
             this.rProject = rProject;
         }
 
         @Override
-        public List<FileObject> getMetadataFiles() {
+        public List<FileObject> getMetadataFiles()
+        {
             FileObject projectDirectory = rProject.getProjectDirectory();
             List<FileObject> files = new ArrayList<FileObject>();
-            for (FileObject nomFichier : files) {
+            for (FileObject nomFichier : files)
+            {
                 System.out.println("========" + nomFichier.getName() + "============");
             }
             return files;
@@ -153,145 +171,176 @@ public class RProject implements Project
         }
 
         @Override
-        public List<FileObject> getDataFiles() {
+        public List<FileObject> getDataFiles()
+        {
             return new ArrayList<FileObject>();
         }
 
         @Override
-        public void notifyRenaming() throws IOException {
+        public void notifyRenaming() throws IOException
+        {
         }
 
         @Override
-        public void notifyRenamed(String nueName) throws IOException {
+        public void notifyRenamed(String nueName) throws IOException
+        {
         }
 
         @Override
-        public void notifyMoving() throws IOException {
+        public void notifyMoving() throws IOException
+        {
         }
 
         @Override
-        public void notifyMoved(Project original, File originalPath, String nueName) throws IOException {
+        public void notifyMoved(Project original, File originalPath, String nueName) throws IOException
+        {
         }
     }
 
 //Class information of the project
-    private final class RPInformation implements ProjectInformation {
+    private final class RPInformation implements ProjectInformation
+    {
 
         @StaticResource()
         public static final String RPROJECT_ICON = "org/teamtwo/r/project/Rlogo.png";
 
         @Override
-        public String getName() {
+        public String getName()
+        {
             return getProjectDirectory().getName();
         }
 
         @Override
-        public String getDisplayName() {
+        public String getDisplayName()
+        {
             return getName();
         }
 
         @Override
-        public Icon getIcon() {
+        public Icon getIcon()
+        {
             return new ImageIcon(ImageUtilities.loadImage(RPROJECT_ICON));
         }
 
         @Override
-        public Project getProject() {
+        public Project getProject()
+        {
             return RProject.this;
         }
 
         @Override
-        public void addPropertyChangeListener(PropertyChangeListener pl) {
+        public void addPropertyChangeListener(PropertyChangeListener pl)
+        {
 
         }
 
         @Override
-        public void removePropertyChangeListener(PropertyChangeListener pl) {
+        public void removePropertyChangeListener(PropertyChangeListener pl)
+        {
 
         }
 
     }
 
     //Copy operation implementation
-    private final class RProjectCopyOperation implements CopyOperationImplementation {
+    private final class RProjectCopyOperation implements CopyOperationImplementation
+    {
 
         @Override
-        public List<FileObject> getMetadataFiles() {
+        public List<FileObject> getMetadataFiles()
+        {
             return new ArrayList<FileObject>();
         }
 
         @Override
-        public List<FileObject> getDataFiles() {
+        public List<FileObject> getDataFiles()
+        {
             return new ArrayList<FileObject>();
         }
 
         @Override
-        public void notifyCopying() throws IOException {
+        public void notifyCopying() throws IOException
+        {
         }
 
         @Override
-        public void notifyCopied(Project prjct, File file, String string) throws IOException {
+        public void notifyCopied(Project prjct, File file, String string) throws IOException
+        {
         }
 
     }
 
     //Delete operation implementation
-    private final class RProjectDeleteOperation implements DeleteOperationImplementation {
+    private final class RProjectDeleteOperation implements DeleteOperationImplementation
+    {
 
         @Override
-        public List<FileObject> getMetadataFiles() {
+        public List<FileObject> getMetadataFiles()
+        {
             return new ArrayList<FileObject>();
         }
 
         @Override
-        public List<FileObject> getDataFiles() {
+        public List<FileObject> getDataFiles()
+        {
             return new ArrayList<FileObject>();
         }
 
         @Override
-        public void notifyDeleting() throws IOException {
+        public void notifyDeleting() throws IOException
+        {
         }
 
         @Override
-        public void notifyDeleted() throws IOException {
+        public void notifyDeleted() throws IOException
+        {
         }
     }
 
     //Logical view of the project
-    class RProjectLogicalView implements LogicalViewProvider {
+    class RProjectLogicalView implements LogicalViewProvider
+    {
 
         @StaticResource()
         public static final String RPROJECT_ICON = "org/teamtwo/r/project/Rlogo.png";
 
         private final RProject project;
 
-        public RProjectLogicalView(RProject project) {
+        public RProjectLogicalView(RProject project)
+        {
             this.project = project;
         }
 
         @Override
-        public Node createLogicalView() {
-            try {
+        public Node createLogicalView()
+        {
+            try
+            {
+                // obtain the project directory node
                 FileObject projectDirectory = project.getProjectDirectory();
                 DataFolder projectFolder = DataFolder.findFolder(projectDirectory);
                 Node nodeOfProjectFolder = projectFolder.getNodeDelegate();
                 return new ProjectNode(project, nodeOfProjectFolder);
-            } catch (DataObjectNotFoundException ex) {
+            } catch (DataObjectNotFoundException ex)
+            {
                 Exceptions.printStackTrace(ex);
                 return new AbstractNode(Children.LEAF);
             }
         }
 
-        private final class ProjectNode extends FilterNode {
+        private final class ProjectNode extends FilterNode
+        {
 
             final RProject project;
 
-            public ProjectNode(RProject project, Node original) throws DataObjectNotFoundException {
+            public ProjectNode(RProject project, Node original) throws DataObjectNotFoundException
+            {
                 super(original,
-                        NodeFactorySupport.createCompositeChildren(project, "Projects/org-netbeans-modules-r-project/Nodes"),
+                        NodeFactorySupport.createCompositeChildren(project, "Projects/org-teamtwo-r-project/Nodes"),
                         //new FilterNode.Children(original),
                         new ProxyLookup(
-                                new Lookup[]{
+                                new Lookup[]
+                                {
                                     Lookups.singleton(project),
                                     original.getLookup()
                                 }));
@@ -299,8 +348,10 @@ public class RProject implements Project
             }
 
             @Override
-            public Action[] getActions(boolean arg0) {
-                return new Action[]{
+            public Action[] getActions(boolean arg0)
+            {
+                return new Action[]
+                {
                     CommonProjectActions.newFileAction(),
                     CommonProjectActions.copyProjectAction(),
                     CommonProjectActions.renameProjectAction(),
@@ -311,27 +362,31 @@ public class RProject implements Project
             }
 
             @Override
-            public Image getIcon(int type) {
+            public Image getIcon(int type)
+            {
                 return ImageUtilities.loadImage(RPROJECT_ICON);
             }
 
             @Override
-            public Image getOpenedIcon(int type) {
+            public Image getOpenedIcon(int type)
+            {
                 return getIcon(type);
             }
 
             @Override
-            public String getDisplayName() {
+            public String getDisplayName()
+            {
                 return project.getProjectDirectory().getName();
             }
 
         }
 
         @Override
-        public Node findPath(Node node, Object o) {
+        public Node findPath(Node node, Object o)
+        {
             return null;
         }
 
     }
-    
+
 }

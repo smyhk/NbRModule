@@ -16,11 +16,12 @@ import org.openide.util.lookup.ServiceProvider;
  *
  * @author Steven
  */
-@ServiceProvider(service=ProjectFactory.class)
+@ServiceProvider(service = ProjectFactory.class)
 public class RProjectFactory implements ProjectFactory
 {
+
     public static final String PROJECT_FILE = "myFile.r";
-    
+
     // specifies when a project is a project, i.e.,
     // if "myFile.txt" is present in a folder
     @Override
@@ -29,7 +30,7 @@ public class RProjectFactory implements ProjectFactory
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         return fo.getFileObject(PROJECT_FILE) != null;
     }
-    
+
     // specifies when the project will be opened; if the project exists
     @Override
     public Project loadProject(FileObject fo, ProjectState ps) throws IOException

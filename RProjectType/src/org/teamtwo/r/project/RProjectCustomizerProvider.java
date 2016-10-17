@@ -20,16 +20,19 @@ import org.openide.util.lookup.Lookups;
  */
 public class RProjectCustomizerProvider implements CustomizerProvider
 {
+
     public final RProject project;
 
     public static final String CUSTOMIZER_FOLDER_PATH = "Projects/org-netbeans-modules-r-project/Customizer";
 
-    public RProjectCustomizerProvider(RProject project) {
+    public RProjectCustomizerProvider(RProject project)
+    {
         this.project = project;
     }
 
     @Override
-    public void showCustomizer() {
+    public void showCustomizer()
+    {
         Dialog dialog = ProjectCustomizer.createCustomizerDialog(
                 //Path to layer folder:
                 CUSTOMIZER_FOLDER_PATH,
@@ -45,10 +48,13 @@ public class RProjectCustomizerProvider implements CustomizerProvider
         dialog.setVisible(true);
     }
 
-    private class OKOptionListener implements ActionListener {
+    private class OKOptionListener implements ActionListener
+    {
+
         @Override
-        public void actionPerformed(ActionEvent e) {
-             StatusDisplayer.getDefault ().setStatusText("OK button clicked for " + project.getProjectDirectory().getName() + " customizer!");
+        public void actionPerformed(ActionEvent e)
+        {
+            StatusDisplayer.getDefault().setStatusText("OK button clicked for " + project.getProjectDirectory().getName() + " customizer!");
         }
     }
 }
