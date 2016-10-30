@@ -20,7 +20,7 @@ public enum RTokenType
     INT(56, "number"),
     WS(63, "whitespace"),
     STRING(59, "string"),
-    T__18(36, "operator");
+    T__18(19, "operator");
 
     public int id;
     public String category;

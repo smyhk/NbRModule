@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN"
+                            "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="OptionsDialog">
+        <file name="org-teamtwo-r-options-ROptionsPanelController.instance">
+            <!--org.teamtwo.r.options.ROptionsPanelController-->
+            <attr
+                methodvalue="org.netbeans.spi.options.OptionsCategory.createCategory" name="instanceCreate"/>
+            <attr name="controller" newvalue="org.teamtwo.r.options.ROptionsPanelController"/>
+            <attr
+                bundlevalue="org.teamtwo.r.options.Bundle#OptionsCategory_Name_R" name="categoryName"/>
+            <attr name="iconBase" stringvalue="org/teamtwo/r/options/RlogoOptions.png"/>
+            <attr
+                bundlevalue="org.teamtwo.r.options.Bundle#OptionsCategory_Keywords_R" name="keywords"/>
+            <attr name="keywordsCategory" stringvalue="R"/>
+        </file>
+    </folder>
+</filesystem>
