@@ -11,7 +11,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import org.openide.util.NbPreferences;
 
-final class RPanel extends javax.swing.JPanel
+public final class RPanel extends javax.swing.JPanel
 {
 
     private final ROptionsPanelController controller;
