@@ -19,8 +19,8 @@ public enum RTokenType
     NL(62, "keyword"),
     INT(56, "number"),
     WS(63, "whitespace"),
-    STRING(59, "string"),
-    T__18(19, "operator");
+    STRING(59, "string");
+    //T__18(19, "operator");
 
     public int id;
     public String category;

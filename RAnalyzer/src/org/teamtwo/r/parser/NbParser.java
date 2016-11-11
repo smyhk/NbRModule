@@ -35,6 +35,11 @@ public class NbParser extends Parser {
         //  System.out.println("Input is " + input.size() + " and the letter is " + input.substring(0, input.size() - 1));
         RLexer lexer = new RLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
+        
+        RFilter filter = new RFilter(tokens);
+        filter.stream(); // call start rule: stream
+        tokens.reset();
+        
         rparser = new RParser(tokens);
         try {
             rparser.prog();

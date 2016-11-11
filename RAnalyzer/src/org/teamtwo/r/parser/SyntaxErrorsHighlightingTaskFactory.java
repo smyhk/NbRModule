@@ -22,6 +22,6 @@ public class SyntaxErrorsHighlightingTaskFactory extends TaskFactory
     public Collection<? extends SchedulerTask> create(Snapshot snpsht)
     {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        return Collections.singleton(new SyntaxErrorsHighlightingTask());
+        return Collections.singleton(new SyntaxErrorsHighlightingTask ());
     }
 }
