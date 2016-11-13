@@ -10,30 +10,25 @@ import java.awt.event.ActionListener;
 import org.openide.loaders.DataObject;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
-import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle.Messages;
 
 @ActionID(
         category = "Debug",
-        id = "org.teamtwo.r.toolbar.RActionListener"
+        id = "org.teamtwo.r.toolbar.RExecutionAction"
 )
 @ActionRegistration(
         iconBase = "org/teamtwo/r/toolbar/Rlogo.png",
-        displayName = "#CTL_RActionListener"
+        displayName = "#CTL_RExecutionAction"
 )
-@ActionReferences(
-{
-    @ActionReference(path = "Toolbars/Debug", position = 0),
-    @ActionReference(path = "Loaders/text/x-r/Actions", position = 0)
-})
-@Messages("CTL_RActionListener=R")
-public final class RActionListener implements ActionListener
+@ActionReference(path = "Loaders/text/x-r/Actions", position = -100)
+@Messages("CTL_RExecutionAction=RExecution")
+public final class RExecutionAction implements ActionListener
 {
 
     private final DataObject context;
 
-    public RActionListener(DataObject context)
+    public RExecutionAction(DataObject context)
     {
         this.context = context;
     }
