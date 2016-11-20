@@ -12,8 +12,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import org.icepdf.ri.common.SwingController;
+import org.icepdf.ri.common.SwingViewBuilder;
 import java.util.regex.Matcher;
 import javax.swing.JScrollPane;
 import org.netbeans.api.progress.ProgressHandle;
@@ -29,6 +32,7 @@ import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
 import org.openide.windows.OutputWriter;
 import org.teamtwo.r.options.RPanel;
+import org.teamtwo.r.pdfviewer.PDFviewerTopComponent;
 
 /**
  *
@@ -41,26 +45,26 @@ public class ReditorRunnable implements Runnable {
     private String Rexecutable = NbPreferences.forModule(RPanel.class).get("RPanel.path", "");
     private int executionStatus;
     private String fileExecuted;
-    //private final plotViewerTopComponent win = plotViewerTopComponent.findInstance();
+    private final PDFviewerTopComponent win = PDFviewerTopComponent.findInstance();
 
     public ReditorRunnable(DataObject dataObject, String commandLineArgs) {
         this.dataObject = dataObject;
         this.commandLineArgs = commandLineArgs;
-        //win.close();
+        win.close();
         JScrollPane scp = new JScrollPane();
-        //win.add(scp);
-        //win.setLayout(new BorderLayout());
-        //win.open();
+        win.add(scp);
+        win.setLayout(new BorderLayout());
+        win.open();
     }
 
     @Override
     public void run() {
         FileObject fileObject = dataObject.getPrimaryFile();
         File file = FileUtil.toFile(fileObject);
-        //File fileToRemove  = new File(file.getParent().concat("/img/Rplots.pdf"));
-        //fileToRemove.delete();
-        //File pdffile = new File("Rplots.pdf");  //PDF file to be opened at the end of execution
-        //pdffile.renameTo(new File(file.getParent().concat("/img/Rplots.pdf")));
+        File fileToRemove  = new File(file.getParent().concat("/img/Rplots.pdf"));
+        fileToRemove.delete();
+        File pdffile = new File("Rplots.pdf");  //PDF file to be opened at the end of execution
+        pdffile.renameTo(new File(file.getParent().concat("/img/Rplots.pdf")));
 
         InputOutput io = IOProvider.getDefault().getIO(file.getName() + "(run)", true);
         io.select();
@@ -79,7 +83,7 @@ public class ReditorRunnable implements Runnable {
                 if (this.getExecutionStatus() == 0) {
                     IOColorLines.println(io, "EXECUTED SUCCESSFUL", Color.GREEN.darker());
 
-                    /*if (pdffile.exists()) {
+                    if (pdffile.exists()) {
 
                         final JScrollPane scrollpane = new JScrollPane();
                         InputStream inputStream = Files.newInputStream(pdffile.toPath());
@@ -94,7 +98,7 @@ public class ReditorRunnable implements Runnable {
                         pn.add(viewerComponentPanel);
                         win.add(pn, BorderLayout.CENTER);                        
                         
-                    } */
+                    }
                 } else {
                     IOColorLines.println(io, "Revise your code please !", Color.RED.darker());
                 }

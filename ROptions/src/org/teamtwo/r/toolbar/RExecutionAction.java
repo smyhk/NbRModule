@@ -52,7 +52,7 @@ public final class RExecutionAction implements ActionListener
             if ("Rscript".equals(file.getName())) {
                 processor.execute(new ReditorRunnable(dataObject, ""));
             } else {
-                processor.execute(new ReditorRunnable(dataObject, " -q -f "));
+                processor.execute(new ReditorRunnable(dataObject, ""));
             }
         }
     }
