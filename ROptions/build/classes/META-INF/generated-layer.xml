@@ -31,6 +31,17 @@
                 <attr boolvalue="false" name="noIconInMenu"/>
             </file>
         </folder>
+        <folder name="Window">
+            <file name="org-teamtwo-r-pdfviewer-PDFviewerTopComponent.instance">
+                <!--org.teamtwo.r.pdfviewer.PDFviewerTopComponent-->
+                <attr
+                    methodvalue="org.openide.windows.TopComponent.openAction" name="instanceCreate"/>
+                <attr name="component" newvalue="org.teamtwo.r.pdfviewer.PDFviewerTopComponent"/>
+                <attr name="preferredID" stringvalue="PDFviewerTopComponent"/>
+                <attr
+                    bundlevalue="org.teamtwo.r.pdfviewer.Bundle#CTL_PDFviewerAction" name="displayName"/>
+            </file>
+        </folder>
     </folder>
     <folder name="Toolbars">
         <folder name="File">
@@ -54,6 +65,14 @@
             </folder>
         </folder>
     </folder>
+    <folder name="Menu">
+        <folder name="Window">
+            <file name="org-teamtwo-r-pdfviewer-PDFviewerTopComponent.shadow">
+                <!--org.teamtwo.r.pdfviewer.PDFviewerTopComponent-->
+                <attr name="originalFile" stringvalue="Actions/Window/org-teamtwo-r-pdfviewer-PDFviewerTopComponent.instance"/>
+            </file>
+        </folder>
+    </folder>
     <folder name="OptionsDialog">
         <file name="org-teamtwo-r-options-ROptionsPanelController.instance">
             <!--org.teamtwo.r.options.ROptionsPanelController-->
@@ -67,5 +86,66 @@
                 bundlevalue="org.teamtwo.r.options.Bundle#OptionsCategory_Keywords_R" name="keywords"/>
             <attr name="keywordsCategory" stringvalue="R"/>
         </file>
+    </folder>
+    <folder name="Windows2">
+        <folder name="Components">
+            <file name="PDFviewerTopComponent.settings">
+                <!--org.teamtwo.r.pdfviewer.PDFviewerTopComponent--><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE settings PUBLIC "-//NetBeans//DTD Session settings 1.0//EN" "http://www.netbeans.org/dtds/sessionsettings-1_0.dtd">
+<settings version="1.0">
+  <instance class="org.teamtwo.r.pdfviewer.PDFviewerTopComponent"/>
+</settings>
+]]></file>
+        </folder>
+        <folder name="Modes">
+            <folder name="editor">
+                <file name="PDFviewerTopComponent.wstcref">
+                    <!--org.teamtwo.r.pdfviewer.PDFviewerTopComponent--><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tc-ref PUBLIC "-//NetBeans//DTD Top Component in Mode Properties 2.0//EN" "http://www.netbeans.org/dtds/tc-ref2_0.dtd">
+<tc-ref version="2.0">
+  <tc-id id="PDFviewerTopComponent"/>
+  <state opened="false"/>
+</tc-ref>
+]]></file>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="xml">
+        <folder name="entities">
+            <folder name="org_teamtwo_r_pdfviewer">
+                <file name="PDFviewer" url="nbres:/org/netbeans/modules/settings/resources/properties-1_0.dtd">
+                    <!--org.teamtwo.r.pdfviewer.PDFviewerTopComponent-->
+                    <attr name="hint.originalPublicID" stringvalue="-//org.teamtwo.r.pdfviewer//PDFviewer//EN"/>
+                </file>
+            </folder>
+        </folder>
+        <folder name="memory">
+            <folder name="org">
+                <folder name="teamtwo">
+                    <folder name="r">
+                        <folder name="pdfviewer">
+                            <file name="PDFviewerTopComponent">
+                                <!--org.teamtwo.r.pdfviewer.PDFviewerTopComponent-->
+                                <attr name="settings.providerPath" stringvalue="xml/lookups//org_teamtwo_r_pdfviewer/PDFviewer.instance"/>
+                            </file>
+                        </folder>
+                    </folder>
+                </folder>
+            </folder>
+        </folder>
+        <folder name="lookups">
+            <folder name="org_teamtwo_r_pdfviewer">
+                <file name="PDFviewer.instance">
+                    <!--org.teamtwo.r.pdfviewer.PDFviewerTopComponent-->
+                    <attr
+                        methodvalue="org.netbeans.api.settings.Factory.create" name="instanceCreate"/>
+                    <attr
+                        methodvalue="org.netbeans.api.settings.Factory.properties" name="settings.convertor"/>
+                    <attr name="settings.instanceClass" stringvalue="org.teamtwo.r.pdfviewer.PDFviewerTopComponent"/>
+                    <attr name="settings.instanceOf" stringvalue="org.teamtwo.r.pdfviewer.PDFviewerTopComponent"/>
+                    <attr boolvalue="true" name="xmlproperties.preventStoring"/>
+                </file>
+            </folder>
+        </folder>
     </folder>
 </filesystem>

@@ -183,7 +183,7 @@ public class ReditorRunnable implements Runnable {
                 }
             }
 
-            //Treate here the error
+            //Treat the error here
             while ((outputString = rfileReaderError.readLine()) != null) {
                 Matcher matcher = ROutputListener.PATTERN.matcher(outputString);
                 ErrorOutput = ErrorOutput.append(" . " + outputString);
