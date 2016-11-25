@@ -19,6 +19,16 @@ public interface RListener extends ParseTreeListener {
 	 */
 	void exitProg(RParser.ProgContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link RParser#expr_or_assign}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_or_assign(RParser.Expr_or_assignContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RParser#expr_or_assign}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_or_assign(RParser.Expr_or_assignContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link RParser#expr}.
 	 * @param ctx the parse tree
 	 */
