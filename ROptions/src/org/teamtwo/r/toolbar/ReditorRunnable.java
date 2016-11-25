@@ -81,7 +81,7 @@ public class ReditorRunnable implements Runnable {
                 processDataObject(writer, getRexecutable(), dataObject, io);
                 //Test the status of the exection
                 if (this.getExecutionStatus() == 0) {
-                    IOColorLines.println(io, "EXECUTED SUCCESSFUL", Color.GREEN.darker());
+                    IOColorLines.println(io, "SUCCESSFUL EXECUTION", Color.GREEN.darker());
 
                     if (pdffile.exists()) {
 
