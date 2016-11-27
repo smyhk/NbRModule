@@ -100,7 +100,7 @@ public class ReditorRunnable implements Runnable {
                         
                     }
                 } else {
-                    IOColorLines.println(io, "Revise your code please !", Color.RED.darker());
+                    IOColorLines.println(io, "Please revise your code !", Color.RED.darker());
                 }
                 myprogress.finish();
             } catch (IOException ex) {
