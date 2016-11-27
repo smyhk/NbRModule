@@ -61,10 +61,10 @@ public class ReditorRunnable implements Runnable {
     public void run() {
         FileObject fileObject = dataObject.getPrimaryFile();
         File file = FileUtil.toFile(fileObject);
-        File fileToRemove  = new File(file.getParent().concat("/img/Rplots.pdf"));
+        File fileToRemove  = new File(file.getParent().concat("Files/Rplots.pdf"));
         fileToRemove.delete();
         File pdffile = new File("Rplots.pdf");  //PDF file to be opened at the end of execution
-        pdffile.renameTo(new File(file.getParent().concat("/img/Rplots.pdf")));
+        pdffile.renameTo(new File(file.getParent().concat("Files/Rplots.pdf")));
 
         InputOutput io = IOProvider.getDefault().getIO(file.getName() + "(run)", true);
         io.select();
